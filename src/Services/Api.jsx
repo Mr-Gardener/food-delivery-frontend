@@ -1,5 +1,3 @@
-// services/api.js
-// Centralized Axios instance for handling API requests
 
 import axios from 'axios';
 
