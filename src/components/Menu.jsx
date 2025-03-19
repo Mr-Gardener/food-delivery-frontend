@@ -1,6 +1,6 @@
 import { useParams, useNavigate} from 'react-router-dom';
 import { useEffect, useState } from 'react';
-import axios from 'axios';
+import api from '../Services/Api';
 import 'bootstrap/dist/css/bootstrap.min.css';
 
 function Menu() {
@@ -13,7 +13,7 @@ function Menu() {
     useEffect(() => {
         const fetchMenu = async () => {
             try {
-                const response = await axios.get(`http://localhost:5000/api/restaurants/${id}`);
+                const response = api.get(`/restaurants/${id}`);
                 setRestaurant(response.data);
                 setMenu(response.data.menu);
             } catch (error) {

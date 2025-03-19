@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react';
 import api from '../Services/Api';
+import { Link } from "react-router-dom";
 
 function Restaurants() {
     const [restaurants, setRestaurants] = useState([]);
@@ -53,9 +54,9 @@ function Restaurants() {
                                 <p className="card-text">Cuisine: {restaurant.cuisine}</p>
                                 <p className="card-text">Rating: {restaurant.rating} ⭐</p>
                                 <p className="card-text">Delivery Time: {restaurant.deliveryTime} mins</p>
-                                <a href={`/menu/${restaurant._id}`} className="btn btn-primary w-100">
+                                <Link to={`/menu/${restaurant._id}`} className="btn btn-primary w-100">
                                     View Menu
-                                </a>
+                                </Link>
                             </div>
                         </div>
                     </div>
