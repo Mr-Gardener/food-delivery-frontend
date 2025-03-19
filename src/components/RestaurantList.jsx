@@ -10,10 +10,11 @@ function Restaurants() {
         const fetchRestaurants = async () => {
             try {
                 const response = await api.get('/restaurants');
+                console.log("Fetched Restaurants from Backend:", response.data);
                 setRestaurants(response.data);
                 setFilteredRestaurants(response.data);
             } catch (error) {
-                console.error('Failed to fetch restaurants:', error);
+                console.error("Error fetching restaurants:", error.response?.data || error.message);
             }
         };
         fetchRestaurants();
