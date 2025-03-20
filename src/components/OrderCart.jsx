@@ -1,5 +1,3 @@
-// frontend/src/components/OrderCart.jsx
-
 import { useLocation, useNavigate } from 'react-router-dom';
 import { Card, ListGroup, Button } from 'react-bootstrap';
 import { useState } from 'react';
@@ -20,6 +18,8 @@ function OrderCart() {
 
     const totalPrice = order.reduce((sum, item) => sum + (item.price * (item.quantity || 1)), 0);
 
+    const API_BASE_URL = 'https://food-delivery-app-1-46ph.onrender.com';
+
     const placeOrder = async () => {
         try {
             const token = localStorage.getItem('token'); 
@@ -37,8 +37,7 @@ function OrderCart() {
             
             console.log('Sending order payload:', orderPayload);
 
-            const response = await axios.post(
-                'http://localhost:5000/api/orders',
+            const response = await axios.post(`${API_BASE_URL}/api/orders`,
                 orderPayload,
                 {
                     headers: {
