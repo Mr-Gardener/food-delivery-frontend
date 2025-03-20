@@ -52,7 +52,15 @@ function Login() {
                     </div>
                     <button type="submit" className="btn btn-primary w-100">Login</button>
                     <div className="text-center mt-3">
-                        <p>Don't have an account? <a href="/register" className="text-primary">Sign up</a></p>
+                    <p>Don't have an account? 
+                        <span 
+                            className="text-primary" 
+                            style={{ cursor: 'pointer', textDecoration: 'underline' }}
+                            onClick={() => navigate('/register')}
+                        >
+                            Sign up
+                        </span>
+                    </p>
                     </div>
                 </form>
             </div>
