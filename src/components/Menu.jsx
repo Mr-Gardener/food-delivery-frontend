@@ -10,19 +10,41 @@ function Menu() {
     const [restaurant, setRestaurant] = useState({});
     const [order, setOrder] = useState([]);
 
+    // useEffect(() => {
+    //     const fetchMenu = async () => {
+    //         try {
+    //             const response = api.get(`/restaurants/${id}`);
+    //             setRestaurant(response.data);
+    //             setMenu(response.data.menu);
+    //         } catch (error) {
+    //             console.error('Failed to fetch menu:', error);
+    //         }
+    //     };
+
+    //     fetchMenu();
+    // }, [id]);
+
     useEffect(() => {
         const fetchMenu = async () => {
             try {
-                const response = api.get(`/restaurants/${id}`);
+                const response = await axios.get(`https://food-delivery-app-1-46ph.onrender.com/api/restaurants/${id}`);
+                console.log("Fetched Restaurant Data:", response.data);
+                
+                if (!response.data || !response.data.menu) {
+                    console.error("Menu data is missing from the response:", response.data);
+                    return;
+                }
+                
                 setRestaurant(response.data);
                 setMenu(response.data.menu);
             } catch (error) {
-                console.error('Failed to fetch menu:', error);
+                console.error("Failed to fetch menu:", error.response?.data || error.message);
             }
         };
-
+    
         fetchMenu();
     }, [id]);
+    
 
     // Function to handle adding items to the order
     const addToOrder = (item) => {
