@@ -1,11 +1,13 @@
 import { useState, useEffect } from 'react';
 import api from '../Services/Api';
+import { useNavigate } from 'react-router-dom';
 
 function Profile() {
     const [user, setUser] = useState({ name: '', email: '' });
     const [orders, setOrders] = useState([]);
     const [loading, setLoading] = useState(true);
     const [error, setError] = useState('');
+    const navigate = useNavigate()
 
     useEffect(() => {
         // Fetch user profile and order history
@@ -37,7 +39,7 @@ function Profile() {
 
     const handleLogout = () => {
         localStorage.removeItem('token'); // Clear token
-        window.location.href = '/login';  // Redirect to login
+        navigate('/login');  // Redirect to login
     };
 
     if (loading) return <p>Loading...</p>;
