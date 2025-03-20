@@ -22,8 +22,8 @@ function Register() {
 
     return (
         <div className="d-flex justify-content-center align-items-center" style={{ height: '80vh' }}>
-            <div className="card p-4" style={{ width: '100%', maxWidth: '400px' }}>
-                <h2>Register</h2>
+            <div className="card p-4 shadow" style={{ width: '100%', maxWidth: '400px' }}>
+                <h2 className="text-center">Register</h2>
                 <form onSubmit={handleRegister}>
                     <div className="mb-3">
                         <label className="form-label">Name</label>
@@ -56,8 +56,18 @@ function Register() {
                         />
                     </div>
                     <button type="submit" className="btn btn-success w-100">Register</button>
+                    
                     <div className="text-center mt-3">
-                        <p>Already have an account? <a href="/login" className="text-primary">Login</a></p>
+                        <p>
+                            Already have an account? 
+                            <button 
+                                type="button" 
+                                className="btn btn-link text-primary p-0" 
+                                onClick={() => navigate('/login')}
+                            >
+                                Login
+                            </button>
+                        </p>
                     </div>
                 </form>
             </div>
@@ -66,4 +76,5 @@ function Register() {
 }
 
 export default Register;
+
 
