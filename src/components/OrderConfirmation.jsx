@@ -5,6 +5,7 @@ function OrderConfirmation() {
     const location = useLocation();
     const navigate = useNavigate();
     const orderDetails = location.state?.order;
+    console.log("Received order details:", orderDetails);
 
     if (!orderDetails || !orderDetails.items || orderDetails.items.length === 0) {
         return (

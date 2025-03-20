@@ -51,6 +51,7 @@ function OrderCart() {
             console.log(response.data);
             
             setOrder([]); // Clear cart on success
+            console.log("Order response:", response.data);
             navigate('/order-confirmation', { state: { order: response.data } }); // Navigate to confirmation page
         } catch (error) {
             console.error('Failed to place order:', error);
