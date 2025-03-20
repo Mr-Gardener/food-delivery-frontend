@@ -4,7 +4,8 @@ import { Card, Button, Container, Row, Col, ListGroup } from 'react-bootstrap';
 function OrderConfirmation() {
     const location = useLocation();
     const navigate = useNavigate();
-    const orderDetails = location.state?.order;
+    const orderDetails = location.state?.order?.order;
+
     console.log("Received order details:", orderDetails);
 
     if (!orderDetails) {
