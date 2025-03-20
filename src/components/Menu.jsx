@@ -2,6 +2,8 @@ import { useParams, useNavigate} from 'react-router-dom';
 import { useEffect, useState } from 'react';
 import api from '../Services/Api';
 import 'bootstrap/dist/css/bootstrap.min.css';
+import axios from 'axios';
+
 
 function Menu() {
     const { id } = useParams();
