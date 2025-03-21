@@ -61,7 +61,7 @@ function Restaurants() {
                         <div key={restaurant._id} className="col-md-6 col-lg-4 mb-4">
                             <div className="card shadow-sm">
                                 <img
-                                    src={restaurant.image}
+                                    src={restaurant.restaurantImage}
                                     alt={restaurant.name}
                                     className="card-img-top"
                                     loading="lazy"
