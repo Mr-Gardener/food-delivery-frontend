@@ -16,7 +16,7 @@ function Restaurants() {
 
                 // Debugging: Log each restaurant's image URL
             response.data.forEach((restaurant) => {
-                console.log(`Image URL for ${restaurant.name}:`, restaurant.imageUrl);
+                console.log(`Image URL for ${restaurant.name}:`, restaurant.image);
             });
 
                 setRestaurants(response.data);
@@ -61,7 +61,7 @@ function Restaurants() {
                         <div key={restaurant._id} className="col-md-6 col-lg-4 mb-4">
                             <div className="card shadow-sm">
                                 <img
-                                    src={`${process.env.VITE_BACKEND_URL}${restaurant.image}`}
+                                    src={restaurant.image}
                                     alt={restaurant.name}
                                     className="card-img-top"
                                     loading="lazy"
