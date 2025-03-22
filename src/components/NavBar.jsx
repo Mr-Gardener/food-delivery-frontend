@@ -21,9 +21,9 @@ function NavBar() {
                         <li className="nav-item">
                             <Link className="nav-link" to="/restaurants">Restaurants</Link>
                         </li>
-                        <li className="nav-item">
+                        {/* <li className="nav-item">
                             <Link className="nav-link" to="/order-cart">Cart</Link>
-                        </li>
+                        </li> */}
                         {token ? (
                             <li className="nav-item">
                                 <Link className="nav-link" to="/profile">Profile</Link>

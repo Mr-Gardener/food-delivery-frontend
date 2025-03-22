@@ -76,7 +76,7 @@ function Restaurants() {
                                         <small className="text-muted">{restaurant.deliveryTime} mins</small>
                                     </div>
 
-                                    <Link to={`/menu/${restaurant._id}`} className="btn btn-primary w-100 mt-3">
+                                    <Link to={`/menu/${restaurant._id}`} className="btn btn-dark w-100 mt-3">
                                         View Menu
                                     </Link>
                                 </div>
