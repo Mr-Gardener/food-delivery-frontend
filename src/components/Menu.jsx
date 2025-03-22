@@ -68,7 +68,6 @@ function Menu() {
                                             borderRadius: "8px", 
                                             padding: "10px 16px", 
                                             fontWeight: "bold",
-                                            backgroundColor: "#FF5722",
                                             borderColor: "#FF5722",
                                             transition: "0.3s ease",
                                         }}
