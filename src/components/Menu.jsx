@@ -63,7 +63,7 @@ function Menu() {
                                     <h6 className="text-success mb-3">${item.price}</h6>
 
                                     <button 
-                                        className="btn btn-primary mt-auto" 
+                                        className="btn btn-dark mt-auto" 
                                         style={{
                                             borderRadius: "8px", 
                                             padding: "10px 16px", 
