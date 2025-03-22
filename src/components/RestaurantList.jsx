@@ -4,20 +4,20 @@ import { Link } from "react-router-dom";
 
 function Restaurants() {
     const [restaurants, setRestaurants] = useState([]);
-    const [search, setSearch] = useState('');
+    const [search, setSearch] = useState("");
     const [loading, setLoading] = useState(true);
-    const [error, setError] = useState('');
+    const [error, setError] = useState("");
 
     useEffect(() => {
         const fetchRestaurants = async () => {
             try {
                 const response = await api.get("/restaurants");
-                console.log("Fetched Restaurants from Backend:", response.data);
+                console.log("Fetched Restaurants:", response.data);
 
-                // Debugging: Log each restaurant's image URL
-            response.data.forEach((restaurant) => {
-                console.log(`Image URL for ${restaurant.name}:`, restaurant.image);
-            });
+                // Log image URLs for debugging
+                response.data.forEach((restaurant) =>
+                    console.log(`Image for ${restaurant.name}:`, restaurant.restaurantImage)
+                );
 
                 setRestaurants(response.data);
             } catch (err) {
@@ -52,25 +52,26 @@ function Restaurants() {
             {/* Error Message */}
             {error && <p className="alert alert-danger text-center">{error}</p>}
 
-            {/* Loading Skeleton */}
+            {/* Loading State */}
             {loading ? (
                 <div className="text-center">Loading restaurants...</div>
             ) : (
                 <div className="row">
                     {filteredRestaurants.map((restaurant) => (
                         <div key={restaurant._id} className="col-md-6 col-lg-4 mb-4">
-                            <div className="card shadow-sm">
+                            <div className="card shadow-sm" style={{ height: "420px", display: "flex", flexDirection: "column" }}>
                                 <img
-                                    src={restaurant.restaurantImage}
+                                    src={restaurant.restaurantImage || "/default-placeholder.png"}
                                     alt={restaurant.name}
                                     className="card-img-top"
+                                    style={{ height: "200px", objectFit: "cover" }}
                                     loading="lazy"
                                 />
-                                <div className="card-body">
+                                <div className="card-body d-flex flex-column">
                                     <h5 className="card-title">{restaurant.name}</h5>
                                     <p className="card-text text-muted">{restaurant.cuisine}</p>
 
-                                    <div className="d-flex justify-content-between align-items-center">
+                                    <div className="d-flex justify-content-between align-items-center mt-auto">
                                         <span className="badge bg-success">{restaurant.rating} ⭐</span>
                                         <small className="text-muted">{restaurant.deliveryTime} mins</small>
                                     </div>
